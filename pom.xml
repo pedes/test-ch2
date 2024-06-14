@@ -6,7 +6,7 @@
 	<!-- groupID must be the business group ID or ORGID-->
 	<groupId>615610e7-8eb3-429f-af99-c0f12c2f81ee</groupId>
 	<artifactId>greeetings-parametrized</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>mule-application</packaging>
 
 	<name>greeetings-parametrized</name>
@@ -65,7 +65,7 @@
 						<provider>MC</provider>
 						<environment>${environment}</environment>
 						<!-- Frankfurt -->
-						<target>Cloudhub-US-East-1</target>
+						<target>Cloudhub-US-East-2</target>
 						<muleVersion>4.6-java8</muleVersion>
 						<!-- Authentication to do the deployment -->
 						<connectedAppClientId>${ca.client_id}</connectedAppClientId>
