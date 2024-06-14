@@ -44,8 +44,18 @@ jobs:
           servers: |
             [{
                 "id": "anypoint-exchange-v3",
-                "username": "fakeuser",
-                "password": "fakepassword"
+                "username": "${{ secrets.ANYPOINT_USERNAME }}",
+                "password": "${{ secrets.ANYPOINT_PASSWORD }}"
+            },
+            {
+                "id": "cloudhub-deploy",
+                "username": "${{ secrets.ANYPOINT_USERNAME }}",
+                "password": "${{ secrets.ANYPOINT_PASSWORD }}"
+            },
+            {
+              "id": "exchange-repository",
+              "username": "${{ secrets.ANYPOINT_USERNAME }}",
+              "password": "${{ secrets.ANYPOINT_PASSWORD }}"
             }
             ]
           
@@ -65,14 +75,26 @@ jobs:
         key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
         restore-keys: |
           ${{ runner.os }}-maven-
+     
     - uses: s4u/maven-settings-action@v2.6.0
       with:
         servers: |
           [{
-                "id": "anypoint-exchange-v3",
-                "username": "fakeuser",
-                "password": "fakepassword"
-            }]
+              "id": "anypoint-exchange-v3",
+              "username": "${{ secrets.ANYPOINT_USERNAME }}",
+              "password": "${{ secrets.ANYPOINT_PASSWORD }}"
+          },
+          {
+              "id": "cloudhub-deploy",
+              "username": "${{ secrets.ANYPOINT_USERNAME }}",
+              "password": "${{ secrets.ANYPOINT_PASSWORD }}"
+          },
+          {
+            "id": "exchange-repository",
+            "username": "${{ secrets.ANYPOINT_USERNAME }}",
+            "password": "${{ secrets.ANYPOINT_PASSWORD }}"
+          }
+          ]
             
     - name: Publish artifact to Exchange
       run: |
